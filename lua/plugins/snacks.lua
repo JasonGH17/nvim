@@ -50,6 +50,32 @@ return {
 				{ section = "startup" },
 			},
 		},
+		lazygit = {
+			configure = true,
+			config = {
+				os = { editPreset = "nvim-remote" },
+				gui = {
+					nerdFontsVersion = "3",
+				},
+			},
+			theme_path = vim.fs.normalize(vim.fn.stdpath("cache") .. "/lazygit-theme.yml"),
+			theme = {
+				[241] = { fg = "Special" },
+				activeBorderColor = { fg = "MatchParen", bold = true },
+				cherryPickedCommitBgColor = { fg = "Identifier" },
+				cherryPickedCommitFgColor = { fg = "Function" },
+				defaultFgColor = { fg = "Normal" },
+				inactiveBorderColor = { fg = "FloatBorder" },
+				optionsTextColor = { fg = "Function" },
+				searchingActiveBorderColor = { fg = "MatchParen", bold = true },
+				selectedLineBgColor = { bg = "Visual" }, -- set to `default` to have no background colour
+				unstagedChangesColor = { fg = "DiagnosticError" },
+			},
+			win = {
+				style = "lazygit",
+				border = "rounded",
+			},
+		},
 		styles = {
 			dashboard = {
 				border = "none",
@@ -61,21 +87,24 @@ return {
 	},
 
 	keys = {
+		-- picker
+		{
+			"<leader>ff",
+			function()
+				Snacks.picker.files()
+			end,
+		},
+
+		-- lazygit
 		{
 			"<leader>tg",
 			function()
-				Snacks.terminal("lazygit", {
-					cwd = cwd(),
-					win = {
-						position = "float",
-						width = 0.9,
-						height = 0.9,
-						border = "rounded",
-					},
-				})
+				Snacks.lazygit()
 			end,
 			desc = "Lazygit",
 		},
+
+		-- terminal
 		{
 			"<leader>tt",
 			function()
