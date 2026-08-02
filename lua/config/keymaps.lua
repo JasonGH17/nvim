@@ -11,7 +11,7 @@ vim.keymap.set("n", "-", "<CMD>Oil<CR>", {
 })
 
 -- mini sessions
-vim.keymap.set("n", "<leader>ss", function()
+vim.keymap.set("n", "<leader>sw", function()
 	MiniSessions.write(vim.fn.fnamemodify(vim.fn.getcwd(), ":t"))
 end, { desc = "Save session" })
 

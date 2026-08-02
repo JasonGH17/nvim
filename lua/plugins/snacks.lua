@@ -42,6 +42,7 @@ return {
 				},
 			},
 		},
+		scratch = { enabled = true },
 		dashboard = {
 			enabled = true,
 			sections = {
@@ -95,6 +96,22 @@ return {
 			end,
 		},
 
+		-- scratch
+		{
+			"<leader>.",
+			function()
+				Snacks.scratch()
+			end,
+			desc = "Toggle Scratch Buffer",
+		},
+		{
+			"<leader>ss",
+			function()
+				Snacks.scratch.select()
+			end,
+			desc = "Select Scratch Buffer",
+		},
+
 		-- lazygit
 		{
 			"<leader>tg",
@@ -131,7 +148,7 @@ return {
 					},
 				})
 			end,
-			desc = "Terminal (vertical split)",
+			desc = "Terminal (Vertical Split)",
 		},
 	},
 }
