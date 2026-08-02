@@ -27,7 +27,7 @@ return {
 			win = {
 				keys = {
 					term_normal = {
-						"<Esc>",
+						"<C-x>",
 						"<C-\\><C-n>",
 						mode = "t",
 					},
@@ -59,15 +59,32 @@ return {
 				Snacks.terminal("lazygit", {
 					cwd = cwd(),
 					win = {
-						position = "right",
-						width = 0.35,
+						position = "float",
+						width = 0.9,
+						height = 0.9,
+						border = "rounded",
+					},
+				})
+			end,
+			desc = "Lazygit",
+		},
+		{
+			"<leader>tt",
+			function()
+				Snacks.terminal("pwsh", { -- TODO: make globally configurable
+					cwd = cwd(),
+					win = {
+						position = "float",
+						width = 0.9,
+						height = 0.9,
+						border = "rounded",
 					},
 				})
 			end,
 			desc = "Terminal",
 		},
 		{
-			"<leader>tt",
+			"<leader>tvt",
 			function()
 				Snacks.terminal("pwsh", { -- TODO: make globally configurable
 					cwd = cwd(),
@@ -77,7 +94,7 @@ return {
 					},
 				})
 			end,
-			desc = "Terminal",
+			desc = "Terminal (vertical split)",
 		},
 	},
 }
