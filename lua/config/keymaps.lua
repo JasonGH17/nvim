@@ -10,5 +10,18 @@ vim.keymap.set("n", "-", "<CMD>Oil<CR>", {
 	desc = "Open parent directory",
 })
 
+-- mini sessions
+vim.keymap.set("n", "<leader>ss", function()
+	MiniSessions.write(vim.fn.fnamemodify(vim.fn.getcwd(), ":t"))
+end, { desc = "Save session" })
+
+vim.keymap.set("n", "<leader>sr", function()
+	MiniSessions.select("read")
+end, { desc = "Restore session" })
+
+vim.keymap.set("n", "<leader>sd", function()
+	MiniSessions.select("delete")
+end, { desc = "Delete session" })
+
 -- formatter
 vim.keymap.set("n", "<leader>f", ":Format<CR>", { desc = "Format buffer" })

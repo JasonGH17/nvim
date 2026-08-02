@@ -1,15 +1,23 @@
 function cwd()
+	local cwd = vim.fn.getcwd()
 	local arg = vim.fn.argv(0)
 
 	if arg:match("^oil://") then
 		return arg:gsub("^oil://", ""):gsub("^/([A-Za-z])/", "%1:/")
 	end
 
-	if arg ~= "" and vim.fn.isdirectory(arg) then
-		return vim.fn.fnamemodify(arg, ":p")
-	else
-		return vim.fn.getcwd()
+	if vim.fn.isdirectory(cwd) then
+		return cwd
 	end
+
+	if arg ~= "" then
+		local path = vim.fn.fnamemodify(arg, ":p")
+		if vim.fn.isdirectory(path) then
+			return path
+		end
+	end
+
+	return cwd
 end
 
 return {
