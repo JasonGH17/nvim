@@ -1,15 +1,16 @@
 return {
-	"sainnhe/gruvbox-material",
+	"folke/tokyonight.nvim",
 	lazy = false,
 	priority = 1000,
+	opts = {
+		style = "storm",
+		styles = {
+			sidebars = "normal",
+			floats = "normal",
+		},
+		lualine_bold = true,
+	},
 	config = function()
-		vim.opt.termguicolors = true
-
-		vim.g.gruvbox_material_foreground = "mix"
-		vim.g.gruvbox_material_background = "hard"
-		vim.g.gruvbox_material_ui_contrast = "high"
-		vim.g.gruvbox_material_enable_italic = true
-
-		vim.cmd.colorscheme("gruvbox-material")
+		vim.cmd.colorscheme("tokyonight-storm")
 	end,
 }

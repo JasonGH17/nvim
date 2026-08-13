@@ -11,6 +11,7 @@ return {
 			rust = { "rustfmt" },
 			javascript = { "prettier" },
 			typescript = { "prettier" },
+			cs = {},
 		}, -- TODO: add formatters for C/C++, C#, and vue.js
 	},
 }

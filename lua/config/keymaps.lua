@@ -24,4 +24,8 @@ vim.keymap.set("n", "<leader>sd", function()
 end, { desc = "Delete session" })
 
 -- formatter
-vim.keymap.set("n", "<leader>f", ":Format<CR>", { desc = "Format buffer" })
+vim.keymap.set("n", "<leader>f", ":Format<CR>", { desc = "Format Buffer" })
+
+--lsp
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
+vim.keymap.set("v", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
