@@ -23,6 +23,7 @@ return {
 				"postgres_lsp",
 				"docker_language_server",
 				"pyright",
+				"mesonlsp",
 			},
 		})
 
@@ -37,5 +38,6 @@ return {
 		vim.lsp.enable("postgres_lsp")
 		vim.lsp.enable("docker_language_server")
 		vim.lsp.enable("pyright")
+		vim.lsp.enable("mesonlsp")
 	end,
 }
